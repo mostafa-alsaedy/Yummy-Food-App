@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <link rel="icon" href="./imgs/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .spinner {
+    width: 72px;
+    height: 72px;
+    display: grid;
+    border: 5.8px solid #0000;
+    border-radius: 50%;
+    border-color: #c79f31 #0000;
+    animation: spinner-e04l1k 1s infinite linear;
+ }
+ 
+ .spinner::before,
+ .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2.9px;
+    border: inherit;
+    border-radius: 50%;
+ }
+ 
+ .spinner::before {
+    border-color: #ffe647 #0000;
+    animation: inherit;
+    animation-duration: 0.5s;
+    animation-direction: reverse;
+ }
+ 
+ .spinner::after {
+    margin: 11.6px;
+ }
+ 
+ @keyframes spinner-e04l1k {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
+        }
+      </style>
+</head>
+
+<body class="bg-black overflow-hidden">
+
+    <div class="loading-screen fixed top-0 bottom-0 start-0 end-0 bg-black flex justify-center items-center z-50">
+        <i class="spinner"></i>
+    </div>
+
+
+    <main class="flex">
+
+        <nav class="w-2/12 md:w-1/12">
+            <div class="sideNav flex fixed z-40">
+                <ul
+                    class="mainNav list-none h-screen w-0 bg-slate-800 text-blue-200 flex flex-col gap-16 pt-20 font-bold text-xl overflow-hidden">
+                    <li class="ps-3 relative"><a class="search absolute top-24" href="#search">Search</a></li>
+                    <li class="ps-3 relative"><a class="cat absolute top-24" href="#category">Categories</a></li>
+                    <li class="ps-3 relative"><a class="area absolute top-24" href="#area">Area</a></li>
+                    <li class="ps-3 relative"><a class="ing absolute top-24" href="#ingredient">Ingredients</a></li>
+                    <li class="ps-3 relative"><a class="contact absolute top-24" href="#contact">Contact</a></li>
+                </ul>
+                <div
+                    class="xArea h-screen  bg-blue-100 flex flex-col justify-between text-center align-middle text-xl py-6 px-3 cursor-pointer">
+                    <img src="./imgs/logo.png" class="w-10" alt="">
+                    <i class="closeBtn fa-solid fa-xmark !hidden"></i>
+                    <i class="openBtn fa-solid fa-bars"></i>
+                    <div class="flex flex-col gap-2">
+                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-share-nodes"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="w-10/12 md:w-11/12 innerSpinner bg-black flex justify-center items-center h-screen hidden">
+            <i class="spinner"></i>
+        </div>
+
+        <div class="divisions w-10/12 md:w-11/12">
+            <section class="searchInputs pe-12 px-10 hidden">
+                <div class="form md:flex gap-4">
+                    <div class="searchName w-full md:w-1/2 my-12">
+                        <label for="default-search"
+                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="default-search"
+                                class="mealNameInput block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Search by Name" required />
+                        </div>
+                    </div>
+                    <div class="searchLetter w-full md:w-1/2 my-12">
+                        <label for="default-search"
+                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="default-search"
+                                class="mealLetterInput block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Search by Letter" maxlength="1" required />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="displaySearch flex flex-wrap py-4  gap-4 hidden">
+            </section>
+
+            <section id="mealDetails" class="top-0 bottom-0 fixed bg-black hidden overflow-y-auto">
+                <div class="closeDetails flex justify-end">
+                    <i class="fa-solid fa-xmark mt-5 me-6 text-4xl text-white cursor-pointer"></i>
+                </div>
+                <div class="mainDetails flex flex-wrap py-10 gap-y-10">
+                    <div class="w-full md:w-4/12 px-4">
+                        <img src="./imgs/test.jpg" class="w-full rounded-lg mb-6" alt="">
+                        <h3 class="text-blue-100 text-4xl font-bold ms-5">Sushi</h3>
+                    </div>
+                    <div class="w-full md:w-8/12 text-white px-4">
+                        <h1 class="text-4xl font-bold mb-5">Instructions</h1>
+                        <p class="mb-5"></p>
+                        <p class="mb-5 text-2xl"><strong>Area:</strong> Turkish</p>
+                        <p class="mb-5 text-2xl"><strong>Category:</strong> Side</p>
+                        <div class="mb-5">
+                            <p class="mb-4 text-2xl font-bold">Recipes:</p>
+                            <div class="recipes flex flex-wrap gap-5 ">
+                                <span class="ingredients bg-blue-200 rounded-lg px-4 py-2 text-black">1 Cup
+                                    Lentils</span>
+                            </div>
+                        </div>
+                        <div class="mb-16">
+                            <p class="mb-4 text-2xl font-bold">Tags:</p>
+                            <span class="bg-pink-300 rounded-lg px-6 py-2 text-black">Soup</span>
+                        </div>
+                        <a href="" class="bg-green-500 rounded-lg px-6 py-3 me-2">Source</a>
+                        <a href="" class="bg-red-600 rounded-lg px-6 py-3">Youtube</a>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="displayCategories" class="flex flex-wrap py-4  gap-4 hidden">
+            </section>
+
+            <section id="displayArea" class="flex flex-wrap py-4  gap-4 hidden">
+            </section>
+
+            <section id="displayIngredient" class="flex flex-wrap py-4  gap-x-4 gap-y-12 hidden">
+            </section>
+
+            <section id="form" class="md:mt-20 md:pe-14 px-4 hidden">
+                <div class="grid gap-6 my-6 md:mb-12  md:grid-cols-2 ">
+                    <div>
+                        <label for="userName"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                        <input type="text" id="userName"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="John" required />
+                        <p class="userNameError mt-2 text-sm text-red-600 dark:text-red-500 hidden">Username must
+                            contain at least 3 characters.</p>
+                    </div>
+                    <div>
+                        <label for="userEmail"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                            address</label>
+                        <input type="email" id="userEmail"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="john.doe@company.com" required />
+                        <p class="userEmailError mt-2 text-sm text-red-600 dark:text-red-500 hidden">Please enter
+                            correct email.</p>
+                    </div>
+                    <div>
+                        <label for="userPhone"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                            number</label>
+                        <input type="tel" id="userPhone"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="0122-100-223" required />
+                        <p class="userPhoneError mt-2 text-sm text-red-600 dark:text-red-500 hidden">Please enter
+                            correct mobile number.</p>
+                    </div>
+                    <div>
+                        <label for="userAge" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Age
+                            number</label>
+                        <input type="number" id="userAge"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="20" required />
+                        <p class="userAgeError mt-2 text-sm text-red-600 dark:text-red-500 hidden">Your age must be at
+                            least 18.</p>
+                    </div>
+                    <div>
+                        <label for="userPassword"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" id="userPassword"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="•••••••••" required />
+                        <p class="userPasswordError mt-2 text-sm text-red-600 dark:text-red-500 hidden">(6~12)
+                            characters containing
+                            at least 1 (Uppercase letter, Number)</p>
+                    </div>
+                    <div>
+                        <label for="userRePassword"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                            password</label>
+                        <input type="password" id="userRePassword"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="•••••••••" required />
+                        <p class="userRePasswordError mt-2 text-sm text-red-600 dark:text-red-500 hidden">Password not
+                            matching.</p>
+                    </div>
+                </div>
+                <button type="submit" disabled
+                    class="submitBtn m-auto block bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center disabled:bg-yellow-600">Submit</button>
+            </section>
+        </div>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>
